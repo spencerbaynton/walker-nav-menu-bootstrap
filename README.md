@@ -1,6 +1,6 @@
 # Walker Nav Menu Bootstrap
 
-A Bootstrap nav menu walker class for WordPress.
+A Bootstrap nav menu walker class for WordPress. It is designed to work with Bootstrap 3 and up.
 
 ## Usage
 
@@ -8,15 +8,17 @@ A Bootstrap nav menu walker class for WordPress.
 <?php wp_nav_menu( array(
 	// ...
 	'depth' => 2,
-	'walker' => new Walker_Nav_Menu_Bootstrap
+	'walker' => new Walker_Nav_Menu_Bootstrap()
 ) ); ?>
 ```
 
-Unfortunately, Bootstrap's navs only support a single level dropdowns so ensure that the `depth` argument is set to `2`.
+Unfortunately, Bootstrap's navs only support a single level of dropdowns so ensure that the `depth` argument is set to `2`.
+
+To prevent `wp_page_menu` being used as a fallback when no menu is specified set `fallback_cb` to `false`.
 
 ## Glyphicons
 
-To use any of Bootstrap's Glyphicons simply add the necessary code to the "Navigation Label" field.
+To use any of Bootstrap's Glyphicons simply add the necessary HTML to the "Navigation Label" field.
 
 ```HTML
 <span class="glyphicon glyphicon-home"></span> Home
@@ -28,4 +30,4 @@ CSS classes can be easily added to nav menu items in your dashboard, but the opt
 
 With the option enabled, you should see a new field when editing menu items labled "CSS Classes (optional)". Any CSS classes can be add to the field, including Bootstrap's.
 
-Since WordPress 3.6, parent nav menu items now have the class `menu-item-has-children`. Therefore, the class will automatically add Bootstrap's `dropdown` class to these items.
+Since WordPress 3.6, parent nav menu items now have the class `menu-item-has-children`. Therefore, Bootstrap's `dropdown` class will automatically added to these items.
