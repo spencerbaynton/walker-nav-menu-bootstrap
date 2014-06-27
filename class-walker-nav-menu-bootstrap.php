@@ -17,6 +17,10 @@ class Walker_Nav_Menu_Bootstrap extends Walker_Nav_Menu {
 
 		$item->classes[] = 'menu-item-' . $item->ID;
 
+		if ( $item->current ) {
+			$item->classes[] = 'active';
+		}
+
 		if ( in_array( 'menu-item-has-children', $item->classes ) ) {
 			$item->classes[] = 'dropdown';
 		}
